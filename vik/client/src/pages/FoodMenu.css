@@ -1,0 +1,242 @@
+/* Overall page container */
+.menu-container {
+  padding: 10rem 2rem 4rem;
+  background: #f0f4ff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* Page title */
+.menu-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #4b0082;
+  font-weight: 700;
+}
+
+/* Section title */
+.section-heading {
+  font-size: 1.8rem;
+  margin: 2rem 0 1.5rem;
+  color: #1e3a8a;
+  border-left: 6px solid #6366f1;
+  padding-left: 14px;
+  font-weight: 600;
+}
+
+/* Grid of items */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Card wrapper with outer margin */
+.menu-card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual food card */
+.menu-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Text area */
+.card-content {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  height: 100%;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4b0082;
+}
+
+/* Dropdown label */
+.items-price-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+/* Dropdown select */
+.card-content select {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #93c5fd;
+  font-size: 1rem;
+  background-color: #e0f2fe;
+  color: #1e3a8a;
+  transition: border 0.3s, box-shadow 0.3s;
+  width: 100%;
+}
+
+.card-content select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+/* Fixed price note */
+.fixed-price-note {
+  background: #e0f2fe;
+  color: #0c4a6e;
+  padding: 8px 10px;
+  font-weight: 500;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+}
+
+/* Buttons container */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Button styling */
+.glow-btn {
+  padding: 8px 14px;
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.glow-btn:hover {
+  background: white;
+  color: #4b0082;
+  border: 1px solid #93c5fd;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+}
+
+/* Quantity controller */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-input {
+  width: 50px;
+  text-align: center;
+  padding: 6px;
+  font-size: 1rem;
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  background: #f0f9ff;
+  color: #1e293b;
+}
+
+/* Items added box */
+.cart-info {
+  background: #fef9ef;
+  border-left: 5px solid #facc15;
+  padding: 10px 14px;
+  margin-top: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #78350f;
+  box-shadow: 0 2px 5px rgba(251, 191, 36, 0.1);
+}
+
+.cart-info p {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.cart-info ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.cart-info li {
+  margin-bottom: 4px;
+}
+
+/* Cart top button */
+.cart-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.go-to-cart-btn {
+  background: linear-gradient(to right, #22d3ee, #34d399);
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.go-to-cart-btn:hover {
+  background: white;
+  color: #0f766e;
+  border: 2px solid #6ee7b7;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-container {
+    padding: 8rem 1rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glow-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
