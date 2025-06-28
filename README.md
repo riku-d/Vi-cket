@@ -1,49 +1,83 @@
 # 🎟️ Vi-cket – Blockchain-Powered Ticketing Platform
 
-**Vi-cket** is a modern IPL/concert ticket booking platform built with a Web2 frontend (React + Razorpay) and Web3 backend (Civic ID + NFT ticketing). Users can book seats, verify identity, pay in INR, and (soon) mint tickets as NFTs on Aptos or Starknet.
+**Vi-cket** is a next-generation IPL, concert, and event ticket booking platform combining traditional web technologies with blockchain. It enables secure seat booking, identity verification, payments in INR, and NFT-based ticket issuance, ensuring transparency, preventing fraud, and creating a tamper-proof ticketing experience.
 
 ---
 
-## 🧩 Tech Stack
+## 🚀 Live Demo
 
-| Layer       | Technology                     |
-|-------------|--------------------------------|
-| Frontend    | React.js (Vite) + TailwindCSS  |
-| Backend     | Node.js + Express.js           |
-| Database    | MongoDB + Mongoose             |
-| Auth        | Civic Identity                 |
-| Payments    | Razorpay (INR)                 |
-| Blockchain  | Ethereum |
+🎥 [Watch on YouTube](https://www.youtube.com/watch?v=2yg2NUGDqd8)
 
 ---
 
-## 📁 Folder Structure
+## 📸 Screenshots
+
+| Booking Flow Example                     | NFT Ticket Example                        | Seat Selection UI                               |
+| ---------------------------------------- | ----------------------------------------- | ----------------------------------------------- |
+| ![Booking Flow](screenshots/booking.png) | ![NFT Ticket](screenshots/nft-ticket.png) | ![Seat Selector](screenshots/seat-selector.png) |
+
+
+
+---
+
+## 🧹 Tech Stack Overview
+
+| Layer          | Technology                                   |
+| -------------- | -------------------------------------------- |
+| Frontend       | React.js (Vite) + TailwindCSS                |
+| Backend        | Node.js + Express.js                         |
+| Database       | MongoDB + Mongoose                           |
+| Authentication | Civic Identity (Google + Wallet)             |
+| Payments       | Razorpay (INR)                               |
+| Blockchain     | Ethereum (Local Hardhat Network for Testing) |
+
+---
+
+## 💡 Features
+
+✅ Civic Identity Login (Google + Wallet)
+✅ Interactive Stadium Seat Selector
+✅ Razorpay INR Payment Integration
+✅ Secure Booking Storage via MongoDB
+✅ NFT Ticket Minting (Local Hardhat Network)
+✅ Future QR Code Ticket Verification System
+✅ Designed for scalability with Aptos/Starknet roadmap
+
+---
+
+## 📁 Project Structure
 
 ```
 vi-cket/
-├── client/              # Frontend (React + Vite)
+├── client/           # Frontend (React + Vite)
 │   ├── src/
+│   ├── public/
 │   ├── .env
-│   ├── .env.example
 │   └── package.json
-|
-|-- nft-ticketing        # NFT Generation (Here contains the Smart Contract)
-|    
-├── server/              # Backend (Node + Express)
+│
+├── server/           # Backend (Node + Express)
 │   ├── routes/
 │   ├── models/
+│   ├── controllers/
 │   ├── .env
-│   ├── .env.example
 │   └── package.json
-├── .gitignore
+│
+├── nft-ticketing/    # NFT Smart Contracts (Hardhat)
+│   ├── contracts/
+│   ├── scripts/
+│   ├── hardhat.config.js
+│   └── package.json
+│
+├── screenshots/      # Screenshots for README/demo
 ├── README.md
+└── .gitignore
 ```
 
 ---
 
-## 🧑‍💻 Local Development Setup
+## 🖥️ Full Setup Guide
 
-### 🔽 Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/vi-cket.git
@@ -52,53 +86,109 @@ cd vi-cket
 
 ---
 
-## 🖥️ Frontend Setup (`client/`)
+### 2️⃣ Frontend Setup
 
 ```bash
 cd client
 npm install
 ```
 
-
-### ▶️ Start the frontend
+**Start Frontend**
 
 ```bash
 npm run dev
 ```
 
-Frontend will run at: [http://localhost:5173](http://localhost:5173)
+Access Frontend at [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 🛠️ Backend Setup (`server/`)
+### 3️⃣ Backend Setup
 
 ```bash
 cd ../server
 npm install
 ```
 
-
-### ▶️ Start the backend
+**Start Backend**
 
 ```bash
 npm run server
 ```
 
-Backend will run at: [http://localhost:5000](http://localhost:5000)
+Backend runs at [http://localhost:5000](http://localhost:5000)
 
 ---
 
+### 4️⃣ Smart Contract (NFT) Setup
 
-## 📖 `.env.example` Files
+```bash
+cd ../nft-ticketing
+npm install
+```
 
-### client/.env.example
+**Compile Contracts**
+
+```bash
+npx hardhat compile
+```
+
+**Mock Deploy Price Feeds on Hardhat Local Network**
+
+```bash
+npx hardhat run scripts/mock-deploy.js
+```
+
+✅ Copy the deployed mock addresses printed in the terminal, example:
+
+```js
+// Replace with actual deployed mock addresses if using mocks
+const inrUsdAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const ethUsdAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+```
+
+Update these addresses in your `deploy.js` script.
+
+**Deploy Main Contract on Hardhat Local Network**
+
+```bash
+npx hardhat run scripts/deploy.js
+```
+
+✅ Copy the deployed contract address printed in the terminal.
+
+**Update Occasion Listing Script**
+
+In `scripts/occasion-list.js`
+
+```js
+const tokenMasterAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"; // ✅ Your deployed contract address
+```
+
+Run the listing script:
+
+```bash
+npx hardhat run scripts/occasion-list.js
+```
+
+**Update Backend Contract Config**
+
+In `server/contract/TokenMaster.json`
+
+update the Json file from nft-ticketing/artifacts/contracts/TokenMaster.sol/TokenMaster.json
+
+---
+
+## 🔑 Environment Variables Setup
+
+### `client/.env.example`
 
 ```env
 VITE_CIVIC_PUBLISHABLE_KEY=your-civic-public-key
 VITE_RAZORPAY_KEY=your-razorpay-key
 ```
 
-### server/.env.example
+### `server/.env.example`
 
 ```env
 PORT=5000
@@ -108,121 +198,35 @@ RAZORPAY_KEY_ID=your-razorpay-key-id
 RAZORPAY_KEY_SECRET=your-razorpay-secret
 ```
 
+---
 
-## 🧱 Features
+## 🔒 Prerequisites
 
-- ✅ Civic Login (Google + Wallet)
-- ✅ Stadium seat selector UI
-- ✅ Razorpay INR payments
-- ✅ MongoDB bookings and match storage
-- 🔜 NFT minting (Ethereum)
-- 🔜 QR code ticket verification
+* Node.js (v18+ recommended)
+* Hardhat globally installed
+* MongoDB Database running
+* Civic Developer Account
+* Razorpay Test Account
+* MetaMask (for testing NFT interaction)
 
 ---
 
+## ⚙️ Roadmap & Future Improvements
 
-## 🚀 Smart Contract Deployment Workflow (Sepolia – Vi-cket Project)
-
-This section outlines the step-by-step commands to compile, mock deploy, modify, and push your smart contract to the **Sepolia testnet** for the Vi-cket platform.
-
----
-
-### 1️⃣ Compile Contract
-
-```bash
-npx hardhat compile
-```
+* [ ] Dynamic QR Code for Real-Time Ticket Validation
+* [ ] Full NFT Metadata Display in MetaMask
+* [ ] Improved UI/UX for mobile devices
+* [ ] Admin dashboard for event organizers
 
 ---
-
-### 2️⃣ Mock Deploy on Local Hardhat Network
-
-This helps you test that your constructor and contract logic works as expected.
-
-```bash
-npx hardhat run scripts/deploy.js
-```
-
-> Make sure `scripts/deploy.js` does **not** have `--network` specified. It uses the local in-memory Hardhat chain.
-
----
-
-### 3️⃣ Modify `deploy.js`
-
-Update `scripts/deploy.js` to use required constructor arguments or initialization values. Example:
-
-```js
-async function main() {
-  const ViTicket = await ethers.getContractFactory("ViTicket");
-
-  const viTicket = await ViTicket.deploy("Vi-cket", "VKT");
-  await viTicket.deployed();
-
-  console.log("Contract deployed to:", viTicket.address);
-}
-```
-
----
-
-### 4️⃣ Deploy to Sepolia Network
-
-Now deploy your updated contract to Sepolia:
-
-```bash
-npx hardhat run scripts/deploy.js --network sepolia
-```
-
-✅ Save the deployed contract address printed in the terminal.
-
----
-
-### 5️⃣ Call Contract Functions (e.g., listOccasion)
-
-If you have a script like `scripts/listOccasion.js`, run it:
-
-```bash
-npx hardhat run scripts/listOccasion.js --network sepolia
-```
-
-Or use Hardhat console:
-
-```bash
-npx hardhat console --network sepolia
-```
-
-```js
-const contract = await ethers.getContractAt("ViTicket", "0xYourSepoliaContractAddress");
-await contract.listOccasion();
-```
-
----
-
-### 6️⃣ Update Frontend & Backend
-
-Paste the new Sepolia contract address and ABI into your app:
-
-**client/src/constants.js**
-```js
-export const CONTRACT_ADDRESS = "0xYourSepoliaContractAddress";
-export const CONTRACT_ABI = [/* ABI from artifacts */];
-```
-
-Also update in your backend if it's interacting via `ethers.js`.
-
----
-
-### ✅ You're Live!
-
-You now have a deployed smart contract on Sepolia, fully integrated with your Vi-cket frontend and backend, ready to test ticket minting and booking features.
 
 ## 🤝 Contributing
 
-Pull requests are welcome! For major changes, open an issue first.
+All contributions are welcome! Please fork the repo, make your changes, and submit a pull request.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
+This project is licensed under the **MIT License**.
 
