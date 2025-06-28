@@ -11,14 +11,14 @@ Buyers often have no verifiable proof of ticket authenticity.
 
 Existing platforms rely heavily on manual verification, lacking a decentralized, tamper-proof solution.
 
-###💡 The Vi-cket Solution:
+### 💡 The Vi-cket Solution:
 Vi-cket combines traditional web technologies with blockchain to solve these challenges by:
 
-✅ Providing an interactive, transparent seat booking experience.
-✅ Integrating Civic Identity for robust user verification, reducing fake account-based exploitation.
-✅ Allowing secure INR payments via Razorpay, ensuring accessibility for Indian users.
-✅ Minting every ticket as a tamper-proof NFT on the blockchain, making each ticket uniquely verifiable and impossible to counterfeit.
-✅ Laying the foundation for real-time QR-based ticket validation and multi-chain support (Aptos, Starknet) in the future.
+✅ Providing an interactive, transparent seat booking experience.  
+✅ Integrating Civic Identity for robust user verification, reducing fake account-based exploitation.  
+✅ Allowing secure INR payments via Razorpay, ensuring accessibility for Indian users.  
+✅ Minting every ticket as a tamper-proof NFT on the blockchain, making each ticket uniquely verifiable and impossible to counterfeit.  
+✅ Laying the foundation for real-time QR-based ticket validation and multi-chain support (Aptos, Starknet) in the future.  
 
 Vi-cket empowers event organizers with better control over ticket distribution and ensures attendees have a secure, fraud-resistant, and seamless ticketing experience.
 
@@ -45,13 +45,13 @@ Vi-cket empowers event organizers with better control over ticket distribution a
 
 ## 💡 Features
 
-✅ Civic Identity Login (Google + Wallet)
-✅ Interactive Stadium Seat Selector
-✅ Razorpay INR Payment Integration
-✅ Secure Booking Storage via MongoDB
-✅ NFT Ticket Minting (Local Hardhat Network)
-✅ Future QR Code Ticket Verification System
-✅ Designed for scalability with Aptos/Starknet roadmap
+✅ Civic Identity Login (Google + Wallet)  
+✅ Interactive Stadium Seat Selector  
+✅ Razorpay INR Payment Integration  
+✅ Secure Booking Storage via MongoDB  
+✅ NFT Ticket Minting (Local Hardhat Network)  
+✅ Future QR Code Ticket Verification System  
+✅ Designed for scalability with Aptos/Starknet roadmap  
 
 ---
 
