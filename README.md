@@ -1,22 +1,32 @@
 # 🎟️ Vi-cket – Blockchain-Powered Ticketing Platform
 
-**Vi-cket** is a next-generation IPL, concert, and event ticket booking platform combining traditional web technologies with blockchain. It enables secure seat booking, identity verification, payments in INR, and NFT-based ticket issuance, ensuring transparency, preventing fraud, and creating a tamper-proof ticketing experience.
+**Vi-cket** is a next-generation event ticketing platform designed to tackle the widespread issues of fraud, fake tickets, black marketing, and lack of transparency in the current ticketing ecosystem—especially for high-demand events like IPL matches, concerts, and festivals.
+
+### 🎯 The Problem with Traditional Ticketing:
+Fake or duplicated tickets can be easily circulated, leading to revenue loss for organizers and bad experiences for attendees.
+
+Scalpers exploit centralized systems to hoard and resell tickets at inflated prices (black marketing).
+
+Buyers often have no verifiable proof of ticket authenticity.
+
+Existing platforms rely heavily on manual verification, lacking a decentralized, tamper-proof solution.
+
+###💡 The Vi-cket Solution:
+Vi-cket combines traditional web technologies with blockchain to solve these challenges by:
+
+✅ Providing an interactive, transparent seat booking experience.
+✅ Integrating Civic Identity for robust user verification, reducing fake account-based exploitation.
+✅ Allowing secure INR payments via Razorpay, ensuring accessibility for Indian users.
+✅ Minting every ticket as a tamper-proof NFT on the blockchain, making each ticket uniquely verifiable and impossible to counterfeit.
+✅ Laying the foundation for real-time QR-based ticket validation and multi-chain support (Aptos, Starknet) in the future.
+
+Vi-cket empowers event organizers with better control over ticket distribution and ensures attendees have a secure, fraud-resistant, and seamless ticketing experience.
 
 ---
 
 ## 🚀 Live Demo
 
 🎥 [Watch on YouTube](https://www.youtube.com/watch?v=2yg2NUGDqd8)
-
----
-
-## 📸 Screenshots
-
-| Booking Flow Example                     | NFT Ticket Example                        | Seat Selection UI                               |
-| ---------------------------------------- | ----------------------------------------- | ----------------------------------------------- |
-| ![Booking Flow](screenshots/booking.png) | ![NFT Ticket](screenshots/nft-ticket.png) | ![Seat Selector](screenshots/seat-selector.png) |
-
-
 
 ---
 
@@ -45,35 +55,6 @@
 
 ---
 
-## 📁 Project Structure
-
-```
-vi-cket/
-├── client/           # Frontend (React + Vite)
-│   ├── src/
-│   ├── public/
-│   ├── .env
-│   └── package.json
-│
-├── server/           # Backend (Node + Express)
-│   ├── routes/
-│   ├── models/
-│   ├── controllers/
-│   ├── .env
-│   └── package.json
-│
-├── nft-ticketing/    # NFT Smart Contracts (Hardhat)
-│   ├── contracts/
-│   ├── scripts/
-│   ├── hardhat.config.js
-│   └── package.json
-│
-├── screenshots/      # Screenshots for README/demo
-├── README.md
-└── .gitignore
-```
-
----
 
 ## 🖥️ Full Setup Guide
 
@@ -143,8 +124,8 @@ npx hardhat run scripts/mock-deploy.js
 
 ```js
 // Replace with actual deployed mock addresses if using mocks
-const inrUsdAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-const ethUsdAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+const inrUsdAddress = "0x........................................";
+const ethUsdAddress = "0x........................................";
 ```
 
 Update these addresses in your `deploy.js` script.
@@ -162,7 +143,7 @@ npx hardhat run scripts/deploy.js
 In `scripts/occasion-list.js`
 
 ```js
-const tokenMasterAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"; // ✅ Your deployed contract address
+const tokenMasterAddress = "0x..................................."; // ✅ Your deployed contract address
 ```
 
 Run the listing script:
@@ -191,11 +172,12 @@ VITE_RAZORPAY_KEY=your-razorpay-key
 ### `server/.env.example`
 
 ```env
-PORT=5000
-MONGO_URI=your-mongodb-uri
-CIVIC_PRIVATE_KEY=your-civic-private-key
+MONGODB_URI=your-mongodb-connection-string
 RAZORPAY_KEY_ID=your-razorpay-key-id
-RAZORPAY_KEY_SECRET=your-razorpay-secret
+RAZORPAY_KEY_SECRET=your-razorpay-key-secret
+PRIVATE_KEY=your-wallet-private-key
+CONTRACT_ADDRESS=your-deployed-contract-address
+RPC_URL=http://127.0.0.1:8545
 ```
 
 ---
